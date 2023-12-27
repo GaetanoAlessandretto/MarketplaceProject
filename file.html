@@ -1,76 +1,361 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <!-- Metadati -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Collegamento a Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <!-- Collegamento a JavaScript -->
-    <script defer src="file.js"></script>
-    <!-- Stili personalizzati -->
-    <style>
-      /* Personalizzazione delle dimensioni della form */
-      .custom-form {
-        margin-top: 20vh; /* Regola questa altezza per centrare verticalmente il modulo */
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Contenitore principale -->
-    <div class="container">
-      <!-- Navbar -->
-      <nav class="navbar bg-primary w-100" id="navbar">
-        <!-- Titolo Username -->
-        <h4 id="pUsername" class="p-2"></h4>
-        <!-- Pulsante Aggiungi Corso -->
-        <span id="addCourse" class="ms-auto p-2"></span>
-        <!-- Filtra per categorie -->
-        <span id="filterByCategories" class="ms-auto p-2"></span>
-        <!-- Pulsante Logout -->
-        <span id="Logout" class="ms-auto p-2"></span>
-      </nav>
-      <!-- Righe per centrare il contenuto -->
-      <div class="row justify-content-center">
-        <!-- Colonna del modulo di login -->
-        <div class="col-lg-6">
-          <!-- Modulo di login personalizzato -->
-          <form class="custom-form">
-            <!-- Titolo del modulo -->
-            <h1 style="color: white">Benvenuto</h1>
-            <!-- Campo Username -->
-            <div class="form-group">
-              <label for="Username" style="color: white">Username</label>
-              <input
-                type="text"
-                class="form-control w-50"
-                id="Username"
-                aria-describedby="emailHelp"
-                placeholder="Inserisci il tuo Username"
-              />
-            </div>
-            <!-- Campo Password -->
-            <div class="form-group">
-              <label for="Password" style="color: white">Password</label>
-              <input
-                type="password"
-                class="form-control w-50"
-                id="Password"
-                placeholder="Inserisci la tua Password"
-              />
-            </div>
-            <!-- Pulsante di invio -->
-            <input type="submit" value="Submit" class="mt-1 btn btn-warning" />
-          </form>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let Array = [];
+function addToCart(item, price,name) {
+  const myCountryInfo = {
+    img: item.children[0].currentSrc,
+    price: price.innerText,
+    name: name.innerText,
+  };
+  Array.push(myCountryInfo);
+  let string = JSON.stringify(Array);
+  localStorage.setItem("img", string);
+  console.log(price.innerText);
+}
+
+  </script>
+</head>
+<style>
+.checked {
+  color: orange;
+}
+
+#img-flex img{
+    height: 150px;
+    width: 150px;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.bg-footer {
+    background-color: #33383c;
+}
+
+.footer-heading {
+    letter-spacing: 2px;
+}
+
+.footer-link a {
+    color: #acacac;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.contact-info {
+    color: #acacac;
+    font-size: 14px;
+}
+
+.footer-social-icon {
+    font-size: 15px;
+    height: 34px;
+    width: 34px;
+    line-height: 34px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+}
+
+.facebook {
+    background-color: #4e71a8;
+    color: #ffffff;
+}
+
+.twitter {
+    background-color: #55acee;
+    color: #ffffff;
+}
+
+.google {
+    background-color: #d6492f;
+    color: #ffffff;
+}
+
+.apple {
+    background-color: #424041;
+    color: #ffffff;
+}
+
+h6{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--mdb-heading-color);
+}
+
+
+
+
+</style>
+<body>
+
+    <nav class="navbar navbar-expand-lg"  style="background-color: #929fba">
+        <img src="BRANDY_1x.png"/ style="margin-left: 10px;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#btn">  <! navbar-toggler serve a dare uno stile toggler al button,data-bs-toggle="collapse" serve a dire al button che deve fare display block e none sul menù>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAExJREFUSEtjZKAxYKSx+QyjFhAM4QEJov8EnYVfAYqjsfmA5hZQ6AFU7QMSBzT3Ac3jgOYW0DyIhr4FNI8Dmlsw9ONg1AcoIUDz0hQAbegGGXzv/l0AAAAASUVORK5CYII="/>
+      </button>
+<div class="collapse navbar-collapse" id="btn">  <! collapse navbar-collapse serve nascondere il menu nei dispositivi mobile>
+    <ul class="navbar-nav ms-auto">  <! margine sinistro automatico>
+        <li class="nav-item">
+            <a href="#" class="nav-link mx-3 text-white">Home</a> <! mx-3 margine sinistro e destro>
+        </li>
+        <li class="nav-item">
+            <a href="file:///C:/Users/Hp/Dropbox/PC/Desktop/E-commerce/shoppingCart.html" class="nav-link mx-3 text-white" data-bs-toggle="modal" data-bs-target="#buttonModal">Carrello</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link mx-3 text-white">Informazioni</a>
+        </li>
+    </ul>
+</div>
+</nav>
+<!-- Modal -->
+<div class="modal fade" id="buttonModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="d-flex justify-content-center align-self-center">
+                    <div class="table-responsive">
+                      <table class="table table-hover" id="table">
+                        <tr>
+                          <th scope="col">Anteprima</td>
+                          <th scope="col">Nome</td>
+                            <th scope="col">Prezzo</td>
+                          <th scope="col">Quantità</td>
+                        </tr>
+                      </table>
+                      <div class="d-flex ">
+                      <button type="button" class="btn btn-primary d-block ms-auto" style="font-weight: 500;">PROCEDI AL PAGAMENTO</button>
+                      <button type="button" class="btn btn-danger ms-1" style="font-weight: 500;">CHIUDI</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <script>
+                  let todos = JSON.parse(localStorage.getItem("img"));
+                  console.log(todos)
+                  let table = document.getElementById("table");
+                  let immaginehtml;
+                  todos.forEach(element => {
+                    immaginehtml = document.createElement("img");
+                    var nuovoH1 = document.createElement('p');
+                    var pname = document.createElement('p');
+                    const inputElement = document.createElement('input');
+                    inputElement.setAttribute('type', 'number');
+                    inputElement.setAttribute('value', '1');
+                    inputElement.style.width = '50px';
+                    immaginehtml.width = 50;
+                    immaginehtml.height = 50;
+                    immaginehtml.src = element.img
+                    nuovoH1.innerHTML = element.price
+                    pname.innerHTML = element.name
+                    console.log(pname)
+                    let rowLength = table.rows.length;
+                    let newRow = table.insertRow(rowLength);
+                    var cell1 = newRow.insertCell(0);
+                    var cell2 = newRow.insertCell(1);
+                    var cell3 = newRow.insertCell(2);
+                    var cell4 = newRow.insertCell(3);
+                    cell1.appendChild(immaginehtml);
+                    cell2.appendChild(pname)
+                    cell3.appendChild(nuovoH1)
+                    cell4.appendChild(inputElement)
+                   });
+                 </script>
         </div>
       </div>
     </div>
-    <!-- Altri elementi della pagina -->
-    <span id="card1"></span>
-  </body>
+  </div>
+  <br>
+<div class="container ">
+    <div class="row">
+        <div class=" col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-4    ">
+            <div class="card" style="width: 18rem;" id="item1">
+                <img src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_94001567?x=320&y=320&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=320&ey=320&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=320&cdy=320">
+                <div class="card-body">
+                    <p id="name1">ACER Aspire 3</p>
+                    <div class="d-flex">
+                    <span id="price1">549€</span>
+                    <div class="ms-auto">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                </div>
+                 <button type="button" onclick="addToCart(item1,price1,name1)" class="btn btn-primary mt-1" style="font-weight: 600;">AGGIUNGI AL CARRELLO</button>
+                </div>
+                </div>
+                
+        </div>
+        <div class=" col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-4  ">
+            <div class="card" style="width: 18rem;" id="item2">
+                <img src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_91972161?x=320&y=320&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=320&ey=320&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=320&cdy=320">
+                <div class="card-body">
+                    <p id="name2">PEAQ C151V</p>
+                    <div class="d-flex">
+                    <span id="price2">299,99€</span>
+                    <div class="ms-auto">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                </div>
+                <button type="button" onclick="addToCart(item2,price2,name2)" class="btn btn-primary mt-1" style="font-weight: 600;">AGGIUNGI AL CARRELLO</button>
+                </div>
+                </div>
+        </div>
+        <div class=" col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-4 ">
+            <div class="card" style="width: 18rem;" id="item3">
+                <img src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_119025998?x=320&y=320&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=320&ey=320&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=320&cdy=320">
+                <div class="card-body">
+                    <p id="name3">LENOVO NB IdeaPad Slim 3</p>
+                    <div class="d-flex">
+                    <span id="price3">499€</span>
+                    <div class="ms-auto">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                </div>
+                <button type="button" onclick="addToCart(item3,price3,name3)" class="btn btn-primary mt-1" style="font-weight: 600;">AGGIUNGI AL CARRELLO</button>
+                </div>
+                </div>
+        </div>
+        <div class=" col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-4  ">
+            <div class="card" style="width: 18rem;" id="item4">
+                <img src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_106097238?x=600&y=450&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=600&ey=450&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=600&cdy=450">
+                <div class="card-body">
+                    <p id="name4">ACER Nitro 5 AN515-58-52K9</p>
+                    <div class="d-flex">
+                    <span id="price4">1000€</span>
+                    <div class="ms-auto">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                </div>
+                <button type="button" onclick="addToCart(item4,price4,name4)" class="btn btn-primary mt-1" style="font-weight: 600;">AGGIUNGI AL CARRELLO</button>
+                </div>
+                </div>
+        </div>
+        <div class=" col-lg-4  col-md-6 col-sm-12 d-flex justify-content-center mb-4">
+            <div class="card" style="width: 18rem;" id="item5">
+                <img src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_100020443?x=600&y=450&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=600&ey=450&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=600&cdy=450">
+                <div class="card-body">
+                    <p id="name5">ACER Aspire 1 A115-32-C64E</p>
+                    <div class="d-flex">
+                    <span id="price5">299,99€</span>
+                    <div class="ms-auto">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                </div>
+                <button type="button" onclick="addToCart(item5,price5,name5)" class="btn btn-primary mt-1" style="font-weight: 600;">AGGIUNGI AL CARRELLO</button>
+                </div>
+                </div>
+        </div>
+        <div class=" col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-4 ">
+            <div class="card" style="width: 18rem;" id="item6">
+                <img src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_101107086?x=600&y=450&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=600&ey=450&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=600&cdy=450">
+                <div class="card-body">
+                    <p id="name6">ASUS Vivobook F515EA-EJ3378W</p>
+                    <div class="d-flex">
+                    <span id="price6">399€</span>
+                    <div class="ms-auto">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                </div>
+                <button type="button" onclick="addToCart(item6,price6,name6)" class="btn btn-primary mt-1" style="font-weight: 600;">AGGIUNGI AL CARRELLO</button>
+                </div>
+                </div>
+        </div>
+        </div>
+    </div>
+</div>
+        <br>
+      
+        <footer  style="background-color: #929fba">
+            <div class="container p-4 pb-0 text-white">
+            <div class="row">
+                <div class="col-md-4">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">CHI SIAMO</h6>
+                    <p class="text-sm text-break">
+                        Il nostro negozio di computer, Brandy, si dedica alla vendita di PC di alta qualità e accessori tecnologici. Con una selezione attentamente curata, il nostro punto vendita offre soluzioni informatiche innovative e affidabili, con un particolare focus sulla performance e sul design.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">CONTATTI</h6>
+                    <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+                    <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+                    <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                    <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">SEGUICI SU</h6>
+                    <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #3b5998"
+               href="#!"
+               role="button"
+               ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #55acee"
+              href="#!"
+              role="button"
+              ><i class="fab fa-twitter"></i
+             ></a>
+             <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #dd4b39"
+               href="#!"
+               role="button"
+               ><i class="fab fa-google"></i
+              ></a>
+              <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #ac2bac"
+               href="#!"
+               role="button"
+               ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #0082ca"
+               href="#!"
+               role="button"
+               ><i class="fab fa-linkedin-in"></i
+              ></a>
+                </div>
+            </div>
+        </footer>
+        
+ 
+</body>
 </html>
